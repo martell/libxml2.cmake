@@ -11,8 +11,8 @@ include_directories( "${XML2_SOURCE_DIR}/include" "${CMAKE_INSTALL_PREFIX}/inclu
 LINK_DIRECTORIES("${CMAKE_INSTALL_PREFIX}/lib")
 
 
-file( GLOB XML2_HEADERS *.h )
-file( GLOB XML2_SOURCES *.c )
+file( GLOB XML2_HEADERS ${XML2_SOURCE_DIR}/*.h )
+file( GLOB XML2_SOURCES ${XML2_SOURCE_DIR}/*.c )
 
 #source_group( libxml FILES ${GLEW_HEADERS} )
 #source_group( src    FILES ${GLEW_SOURCES} )
@@ -30,7 +30,7 @@ endif()
 add_library( xml2 ${XML2_LIBTYPE} ${XML2_SOURCES} ${XML2_HEADERS} )
 target_link_libraries(xml2 iconv ws2_32)
 
-set_target_properties(xml2 PROPERTIES PUBLIC_HEADER "${CMAKE_CURRENT_SOURCE_DIR}/libxml2/include/libxml")
+set_target_properties(xml2 PROPERTIES PUBLIC_HEADER "${XML2_SOURCE_DIR}/include/libxml")
 
 set(BINDIR bin)
 set(BINCOMPONENT runtime)
