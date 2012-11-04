@@ -10,6 +10,8 @@ set(XML2_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/libxml2)
 include_directories( "${XML2_SOURCE_DIR}/include" "${CMAKE_INSTALL_PREFIX}/include")
 LINK_DIRECTORIES("${CMAKE_INSTALL_PREFIX}/lib")
 
+#for windows only must fix later
+include_directories("${XML2_SOURCE_DIR}/win32/VC10")
 
 file( GLOB XML2_HEADERS ${XML2_SOURCE_DIR}/*.h )
 file( GLOB XML2_SOURCES ${XML2_SOURCE_DIR}/*.c )
