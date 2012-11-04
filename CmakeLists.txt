@@ -14,6 +14,8 @@ LINK_DIRECTORIES("${CMAKE_INSTALL_PREFIX}/lib")
 file( GLOB XML2_HEADERS ${XML2_SOURCE_DIR}/*.h )
 file( GLOB XML2_SOURCES ${XML2_SOURCE_DIR}/*.c )
 
+file( GLOB API_HEADERS ${XML2_SOURCE_DIR}/include/libxml/*.h )
+
 #source_group( libxml FILES ${GLEW_HEADERS} )
 #source_group( src    FILES ${GLEW_SOURCES} )
 #include_directories(${ANDROID_NDK}/platforms/android-14/arch-arm/usr/include/asm)
@@ -30,7 +32,7 @@ endif()
 add_library( xml2 ${XML2_LIBTYPE} ${XML2_SOURCES} ${XML2_HEADERS} )
 target_link_libraries(xml2 iconv ws2_32)
 
-set_target_properties(xml2 PROPERTIES PUBLIC_HEADER "${XML2_SOURCE_DIR}/include/libxml")
+set_target_properties(xml2 PROPERTIES PUBLIC_HEADER "${API_HEADERS}")
 
 set(BINDIR bin)
 set(BINCOMPONENT runtime)
