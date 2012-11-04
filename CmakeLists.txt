@@ -30,7 +30,7 @@ endif()
 add_library( xml2 ${XML2_LIBTYPE} ${XML2_SOURCES} ${XML2_HEADERS} )
 target_link_libraries(xml2 iconv ws2_32)
 
-set_target_properties(glew PROPERTIES PUBLIC_HEADER "${CMAKE_CURRENT_SOURCE_DIR}/libxml2/include/libxml")
+set_target_properties(xml2 PROPERTIES PUBLIC_HEADER "${CMAKE_CURRENT_SOURCE_DIR}/libxml2/include/libxml")
 
 set(BINDIR bin)
 set(BINCOMPONENT runtime)
@@ -39,7 +39,7 @@ set(LIBCOMPONENT dev)
 set(INCLUDEDIR include/libxml)
 set(INCLUDECOMPONENT dev)
 
-install(TARGETS glew
+install(TARGETS xml2
 	RUNTIME DESTINATION ${BINDIR} COMPONENT ${BINCOMPONENT}
 	LIBRARY DESTINATION ${LIBDIR} COMPONENT ${LIBCOMPONENT}
 	ARCHIVE DESTINATION ${LIBDIR} COMPONENT ${LIBCOMPONENT}
